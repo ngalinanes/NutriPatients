@@ -1,0 +1,70 @@
+{% import "bootstrap/utils.html" as utils %}
+{% extends "base.html" %}
+{% block title %}Pacientes{% endblock %}
+{% block body %}
+<div class="content-section">
+  <div class="outer">
+    <div class="middle">
+      <div class="inner">
+        <br/>
+        {{ utils.flashed_messages() }}
+        <br/>
+        <h1 style="text-align:center;">Pacientes</h1>
+        {% if pacientes %}
+          <hr class="intro-divider">
+          <div class="container">
+          <div class="col-md-6 offset-md-4">
+            <table class="table table-striped table-bordered w-auto">
+              <thead>
+                <tr>
+                  <th> Nombre </th>
+                  <th> Edad </th>
+                  <th> Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+              {% for paciente in pacientes %}
+                <tr>
+                  <td> {{ paciente.nombre }} </td>
+                  <td> {{ paciente.edad }} </td>
+                  <td>
+                    <a data-toggle="tooltip" data-placement="top" title="Perfil" href="{{ url_for('ver_paciente', id=paciente.id) }}">
+                      <i class="fas fa-user-circle"></i>
+                    </a>
+                    <a data-toggle="tooltip" data-placement="top" title="Editar" href="{{ url_for('edit_paciente', id=paciente.id) }}">
+                        <i class="fas fa-user-edit"></i> 
+                    </a>
+                    <a data-toggle="tooltip" data-placement="top" title="Historia clinica" href="{{ url_for('ver_historia_clinica', id=paciente.id) }}">
+                      <i class="fas fa-notes-medical"></i>
+                    </a>
+                    <a data-toggle="tooltip" data-placement="top" title="Laboratorios" href="#">
+                      <i class="fas fa-syringe"></i>
+                    </a>
+                    <a data-toggle="tooltip" data-placement="top" title="Estudio fisico inicial" href="#">
+                      <i class="fas fa-heartbeat"></i>
+                    </a>
+                    <a data-toggle="tooltip" data-placement="top" title="Estudios fisicos posteriores" href="#">
+                      <i class="fas fa-weight"></i>
+                    </a>
+                    <a data-toggle="tooltip" data-placement="top" title="Eliminar" href="#">
+                      <i class="fas fa-ban"></i>
+                    </a>
+                  </td>
+                </tr>
+               {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+          <div style="text-align: center">
+        {% else %}
+          <div style="text-align: center">
+            <h3> No hay pacientes cargados. </h3>
+            <hr class="intro-divider">
+        {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

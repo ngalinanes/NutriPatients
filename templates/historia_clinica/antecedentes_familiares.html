@@ -1,0 +1,120 @@
+{% import "bootstrap/wtf.html" as wtf %}
+{% import "bootstrap/utils.html" as utils %}
+{% extends "base.html" %}
+{% block title %}Historia Clinica{% endblock %}
+{% block body %}
+<div class="container">
+    <br>
+    {{ utils.flashed_messages() }}
+    <div class="content-section">
+        <div class="center">
+            <br>
+            <div class="container">
+                <div class="col-md-10 offset-md-1">
+                    <div class="card-header text-center">
+                        <h5>Historia Clinica de {{ nombre_paciente }}</h5>
+                    </div>
+                    <form  action="/antecedentes_familiares" method="POST">
+                        <div class="card">
+                            <div class="card-header text-center">
+                                <h4>Antecedentes familiares</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <label class="input-group-text">Diabetes</label>
+                                    </div>
+                                    <select name="diabetes" class="custom-select">
+                                        <option selected>Seleccionar...</option>
+                                        <option value="Madre">Madre</option>
+                                        <option value="Padre">Padre</option>
+                                        <option value="Abuelo/a">Abuelo/a</option>
+                                        <option value="Tio/a">Tio/a</option>
+                                        <option value="Nadie/No sabe">Nadie/No sabe</option>
+                                    </select>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <label class="input-group-text">Enfermedad Cardiaca</label>
+                                    </div>
+                                    <select name="cardiaca" class="custom-select">
+                                        <option selected>Seleccionar...</option>
+                                        <option value="Madre">Madre</option>
+                                        <option value="Padre">Padre</option>
+                                        <option value="Abuelo/a">Abuelo/a</option>
+                                        <option value="Tio/a">Tio/a</option>
+                                        <option value="Nadie/No sabe">Nadie/No sabe</option>
+                                    </select>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <label class="input-group-text">Hipertensión</label>
+                                    </div>
+                                    <select name="hipertension" class="custom-select">
+                                        <option selected>Seleccionar...</option>
+                                        <option value="Madre">Madre</option>
+                                        <option value="Padre">Padre</option>
+                                        <option value="Abuelo/a">Abuelo/a</option>
+                                        <option value="Tio/a">Tio/a</option>
+                                        <option value="Nadie/No sabe">Nadie/No sabe</option>
+                                    </select>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <label class="input-group-text">Sobrepeso/Obesidad</label>
+                                    </div>
+                                    <select name="sobrepeso" class="custom-select">
+                                        <option selected>Seleccionar...</option>
+                                        <option value="Madre">Madre</option>
+                                        <option value="Padre">Padre</option>
+                                        <option value="Abuelo/a">Abuelo/a</option>
+                                        <option value="Tio/a">Tio/a</option>
+                                        <option value="Nadie/No sabe">Nadie/No sabe</option>
+                                    </select>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <label class="input-group-text">Ataque cardíaco/ACV</label>
+                                    </div>
+                                    <select name="acv" class="custom-select">
+                                        <option selected>Seleccionar...</option>
+                                        <option value="Madre">Madre</option>
+                                        <option value="Padre">Padre</option>
+                                        <option value="Abuelo/a">Abuelo/a</option>
+                                        <option value="Tio/a">Tio/a</option>
+                                        <option value="Nadie/No sabe">Nadie/No sabe</option>
+                                    </select>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <label class="input-group-text">Cáncer</label>
+                                    </div>
+                                    <select name="cancer" class="custom-select">
+                                        <option selected>Seleccionar...</option>
+                                        <option value="Madre">Madre</option>
+                                        <option value="Padre">Padre</option>
+                                        <option value="Abuelo/a">Abuelo/a</option>
+                                        <option value="Tio/a">Tio/a</option>
+                                        <option value="Nadie/No sabe">Nadie/No sabe</option>
+                                    </select>
+                                </div>
+                                <label for="observaciones">Observaciones:</label>
+                                    <textarea name="observaciones" class="form-control" cols="50" rows="2"></textarea>
+                                <br>
+                                <label>Otros (TCA):</label>
+                                <input type="text" name="otro_tca" class="form-control">
+                                <br>
+                                <button type="submit" class="btn btn-secondary btn-success">Siguiente</button>
+                                <br><br>
+                                <a href="#" onclick="window.history.go(-1); return false;" class="btn btn-secondary">Volver</a>
+                                <input type="text" name="id" class="invisible" value="{{ id }}">
+                                <input type="text" name="nombre_paciente" class="invisible" value="{{ nombre_paciente }}">  
+                            </div>
+                        </div>
+                    </form> 
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% import "bootstrap/utils.html" as utils %}
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block body %}
+  <!-- HEADER -->
+  <header class="main-header">
+      <div class="background-overlay text-white py-5">
+        <div class="container">
+            {{ utils.flashed_messages() }}
+          <div class="row">
+              <div class="col-md-6 text-center justify-content-center align-self-center">
+                <h3>Lic. Micaela Celis</h3>
+              </div>
+              <div class="col-md-6 text-center">
+                <img src="{{url_for('static', filename='img/consultorios-quilmes.jpg')}}" alt="Consultorio Quilmes" style="width: 80%;" class="img-fluid">
+              </div>
+          </div>
+        </div>
+      </div>
+    </header>
+{% endblock %}

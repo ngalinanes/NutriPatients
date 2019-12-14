@@ -1,0 +1,169 @@
+{% import "bootstrap/wtf.html" as wtf %}
+{% import "bootstrap/utils.html" as utils %}
+{% extends "base.html" %}
+{% block title %}Historia Clinica{% endblock %}
+{% block body %}
+<div class="container">
+    <br>
+    {{ utils.flashed_messages() }}
+    <div class="content-section">
+        <div class="center">
+            <br>
+            <div class="container">
+                <div class="col-md-10 offset-md-1">
+                    <div class="card-header text-center">
+                        <h5>Historia Clinica de {{ nombre_paciente }}</h5>
+                    </div>
+                    <form  action="/frecuencia_alimentos" method="POST">
+                        <div class="card">
+                            <div class="card-header text-center">
+                                <h4>Frecuencia de alimentos</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="container ">
+                                    <p>¿Cuántas veces a la semana come/bebe los siguientes alimentos?</p>
+                                    <div class="d-flex">
+                                        <div class="form-group pl-3">
+                                            <label><i>Frutas:</i></label>
+                                            <br>
+                                            <input type="radio" name="frutas" value="Todos los días">
+                                            <label>Todos los días.</label>
+                                            <input type="radio" name="frutas" value="3 a 4 días">
+                                            <label>3 a 4 días.</label>
+                                            <input type="radio" name="frutas" value="1 a 2 días">
+                                            <label>1 a 2 días.</label>
+                                            <input type="radio" name="frutas" value="Nunca">
+                                            <label>Nunca.</label>
+                                        </div>
+                                        <div class="form-group pl-3">
+                                            <label><i>Verduras:</i></label>
+                                            <br>
+                                            <input type="radio" name="verduras" value="Todos los días">
+                                            <label>Todos los días.</label>
+                                            <input type="radio" name="verduras" value="3 a 4 días">
+                                            <label>3 a 4 días.</label>
+                                            <input type="radio" name="verduras" value="1 a 2 días">
+                                            <label>1 a 2 días.</label>
+                                            <input type="radio" name="verduras" value="Nunca">
+                                            <label>Nunca.</label>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex">
+                                        <div class="form-group pl-3">
+                                            <label><i>Carnes:</i></label>
+                                            <br>
+                                            <input type="radio" name="carne" value="Todos los días">
+                                            <label>Todos los días.</label>
+                                            <input type="radio" name="carne" value="3 a 4 días">
+                                            <label>3 a 4 días.</label>
+                                            <input type="radio" name="carne" value="1 a 2 días">
+                                            <label>1 a 2 días.</label>
+                                            <input type="radio" name="carne" value="Nunca">
+                                            <label>Nunca.</label>
+                                        </div>
+                                        <div class="form-group pl-3">
+                                            <label><i>Lácteos:</i></label>
+                                            <br>
+                                            <input type="radio" name="lacteos" value="Todos los días">
+                                            <label>Todos los días.</label>
+                                            <input type="radio" name="lacteos" value="3 a 4 días">
+                                            <label>3 a 4 días.</label>
+                                            <input type="radio" name="lacteos" value="1 a 2 días">
+                                            <label>1 a 2 días.</label>
+                                            <input type="radio" name="lacteos" value="Nunca">
+                                            <label>Nunca.</label>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex">
+                                        <div class="form-group pl-3">
+                                            <label><i>Agua:</i></label>
+                                            <br>
+                                            <input type="radio" name="agua" value="Todos los días">
+                                            <label>Todos los días.</label>
+                                            <input type="radio" name="agua" value="3 a 4 días">
+                                            <label>3 a 4 días.</label>
+                                            <input type="radio" name="agua" value="1 a 2 días">
+                                            <label>1 a 2 días.</label>
+                                            <input type="radio" name="agua" value="Nunca">
+                                            <label>Nunca.</label>
+                                        </div>
+                                        <div class="form-group pl-3">
+                                            <label><i>Gaseosas:</i></label>
+                                            <br>
+                                            <input type="radio" name="gaseosa" value="Todos los días">
+                                            <label>Todos los días.</label>
+                                            <input type="radio" name="gaseosa" value="3 a 4 días">
+                                            <label>3 a 4 días.</label>
+                                            <input type="radio" name="gaseosa" value="1 a 2 días">
+                                            <label>1 a 2 días.</label>
+                                            <input type="radio" name="gaseosa" value="Nunca">
+                                            <label>Nunca.</label>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex">
+                                        <div class="form-group pl-3">
+                                            <label><i>Huevo:</i></label>
+                                            <br>
+                                            <input type="radio" name="huevo" value="Todos los días">
+                                            <label>Todos los días.</label>
+                                            <input type="radio" name="huevo" value="3 a 4 días">
+                                            <label>3 a 4 días.</label>
+                                            <input type="radio" name="huevo" value="1 a 2 días">
+                                            <label>1 a 2 días.</label>
+                                            <input type="radio" name="huevo" value="Nunca">
+                                            <label>Nunca.</label>
+                                        </div>
+                                        <div class="form-group pl-3">
+                                            <label><i>Cereales:</i></label>
+                                            <br>
+                                            <input type="radio" name="cereales" value="Todos los días">
+                                            <label>Todos los días.</label>
+                                            <input type="radio" name="cereales" value="3 a 4 días">
+                                            <label>3 a 4 días.</label>
+                                            <input type="radio" name="cereales" value="1 a 2 días">
+                                            <label>1 a 2 días.</label>
+                                            <input type="radio" name="cereales" value="Nunca">
+                                            <label>Nunca.</label>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex">
+                                        <div class="form-group pl-3">
+                                            <label><i>¿Cuántas veces a la semana come comida casera?:</i></label>
+                                            <br>
+                                            <input type="radio" name="casera" value="Todos los días">
+                                            <label>Todos los días.</label>
+                                            <input type="radio" name="casera" value="3 a 4 días">
+                                            <label>3 a 4 días.</label>
+                                            <input type="radio" name="casera" value="1 a 2 días">
+                                            <label>1 a 2 días.</label>
+                                            <input type="radio" name="casera" value="Nunca">
+                                            <label>Nunca.</label>
+                                        </div>
+                                        <div class="form-group pl-3">
+                                            <label><i>¿Cuantas veces por semana come fuera de su casa?:</i></label>
+                                            <br>
+                                            <input type="radio" name="afuera" value="Todos los días">
+                                            <label>Todos los días.</label>
+                                            <input type="radio" name="afuera" value="3 a 4 días">
+                                            <label>3 a 4 días.</label>
+                                            <input type="radio" name="afuera" value="1 a 2 días">
+                                            <label>1 a 2 días.</label>
+                                            <input type="radio" name="afuera" value="Nunca">
+                                            <label>Nunca.</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-secondary btn-success">Siguiente</button>
+                                <br><br>
+                                <a href="#" onclick="window.history.go(-1); return false;" class="btn btn-secondary">Volver</a>
+                                <input type="text" name="id" class="invisible" value="{{ id }}">
+                                <input type="text" name="nombre_paciente" class="invisible" value="{{ nombre_paciente }}">  
+                            </div>
+                        </div>
+                    </form> 
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

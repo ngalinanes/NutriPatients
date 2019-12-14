@@ -1,0 +1,60 @@
+{% import "bootstrap/wtf.html" as wtf %}
+{% import "bootstrap/utils.html" as utils %}
+{% extends "base.html" %}
+{% block title %}Historia Clinica{% endblock %}
+{% block body %}
+<div class="container">
+    <br>
+    {{ utils.flashed_messages() }}
+    <div class="content-section">
+        <div class="center">
+            <br>
+            <div class="container">
+                <div class="col-md-10 offset-md-1">
+                    <div class="card-header text-center">
+                        <h5>Historia Clinica de {{ nombre_paciente }}</h5>
+                    </div>
+                    <form action="/actividad_fisica" method="POST">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>Actividad física</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="d-flex">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <label class="input-group-text">¿Realiza actividad física?</label>
+                                        </div>
+                                        <select name="actividad" class="custom-select">
+                                            <option selected>Seleccionar..</option>
+                                            <option value="Si">Si.</option>
+                                            <option value="No">No.</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="d-flex">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <label class="input-group-text">¿Cuál?:</label>
+                                        </div>
+                                        <input type="text" name="cual_actividad" class="form-control">
+                                    </div>
+                                </div><br>
+                                <div class="d-flex">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <label class="input-group-text">¿Cuántas veces por semana y cuántas horas?:</label>
+                                        </div>
+                                        <input type="text" name="cuantas_veces" class="form-control">
+                                    </div>
+                                </div>
+                                <br>
+                                <button type="submit" class="btn btn-secondary btn-success">Siguiente</button>
+                                <br><br>
+                                <a href="#" onclick="window.history.go(-1); return false;" class="btn btn-secondary">Volver</a>
+                                <input type="text" name="id" class="invisible" value="{{ id }}">
+                                <input type="text" name="nombre_paciente" class="invisible" value="{{ nombre_paciente }}">  
+                            </div>
+                        </div>
+                    </form>
+{% endblock %}

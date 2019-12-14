@@ -1,0 +1,39 @@
+{% import "bootstrap/wtf.html" as wtf %}
+{% import "bootstrap/utils.html" as utils %}
+{% extends "base.html" %}
+{% block title %}Paciente{% endblock %}
+{% block body %}
+<div class="container">
+{{ utils.flashed_messages() }}
+<div class="content-section">
+  <div class="center">
+  </br>
+    <div class="container">
+        <div class="col-md-5 offset-md-3">
+            <div class="card">
+                <div class="card-header center">
+                    <h3 class="center">Perfil del paciente</h3>
+                </div>
+                    <br>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><b>Nombre completo: </b><i>{{ paciente.nombre }}</i></li>
+                        <li class="list-group-item"><b>Fecha de nacimiento: </b><i>{{ paciente.nacimiento }}</i></li>
+                        <li class="list-group-item"><b>Edad: </b><i>{{ paciente.edad }}</i></li>
+                        <li class="list-group-item"><b>Telefono: </b><i>{{ paciente.telefono }}</i></li>
+                        <li class="list-group-item"><b>Estado Civil: </b><i>{{ paciente.estado_civil }}</i></li>
+                        <li class="list-group-item"><b>Email: </b><i>{{ paciente.email }}</i></li>
+                        <li class="list-group-item"><b>Cantidad de hijos: </b><i>{{ paciente.cant_hijos }}</i></li>
+                        <li class="list-group-item"><b>Ocupacion: </b><i>{{ paciente.ocupacion }}</i></li>
+                        <li class="list-group-item"><b>Obervaciones: </b><i>{{ paciente.observaciones }}</i></li>
+                    </ul>
+                </div>
+                    <br>
+                    <div class="text-center">
+                        <a href="/all_pacientes" class="btn btn-secondary">Volver</a> 
+                    </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

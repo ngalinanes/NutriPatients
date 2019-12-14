@@ -1,0 +1,180 @@
+{% import "bootstrap/wtf.html" as wtf %}
+{% import "bootstrap/utils.html" as utils %}
+{% extends "base.html" %}
+{% block title %}Historia Clinica{% endblock %}
+{% block body %}
+<div class="container">
+    <br>
+    {{ utils.flashed_messages() }}
+    <div class="content-section">
+        <div class="center">
+            <br>
+            <div class="container">
+                <div class="col-md-10 offset-md-1">
+                    <div class="card-header text-center">
+                        <h5>Historia Clinica de {{ paciente.nombre }}</h5>
+                    </div>
+                    <form  action="/edit_historia_personal/{{ paciente.id }}" method="POST">
+                        <div class="card">
+                            <div class="card-header text-center">
+                                <h4>Editar historia personal</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="d-flex">
+                                    <div class="form-group col-sm-10 pr-4">
+                                        <label><i>Enfermedades crónicas: Diabetes, hipertensión, disilipemias, otros:</i></label>
+                                        <br>
+                                        {% if historia_personal %}
+                                            <p>Actual: {{ historia_personal.enfermedades_cronicas }}</p>
+                                        {% endif %}
+                                        <input type="radio" value="Si" name="enfermedades_cronicas" required>
+                                        <label>Si.</label>
+                                        <input type="radio" value="No" name="enfermedades_cronicas">
+                                        <label>No.</label>
+                                        <br>
+                                        <label>Obervaciones:</label>
+                                        <input type="text" name="obs_enf_cron" value="{{ historia_personal.obs_enf_cron }}" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="d-flex">
+                                    <div class="form-group col-sm-10 pr-4">
+                                        <label><i>Cirugías:</i></label>
+                                        <br>
+                                        {% if historia_personal %}
+                                            <p>Actual: {{ historia_personal.cirugias }}</p>
+                                        {% endif %}
+                                        <input type="radio" value="Si" name="cirugias" required>
+                                        <label>Si.</label>
+                                        <input type="radio" value="No" name="cirugias">
+                                        <label>No.</label>
+                                        <br>
+                                        <label>Obervaciones:</label>
+                                        <input type="text" name="obs_cirugias" value="{{ historia_personal.obs_cirugias }}" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="d-flex">
+                                    <div class="form-group col-sm-10 pr-4">
+                                        <label><i>Alergias a alimentos:</i></label>
+                                        <br>
+                                        {% if historia_personal %}
+                                            <p>Actual: {{ historia_personal.alergias }}</p>
+                                        {% endif %}
+                                        <input type="radio" value="Si" name="alergias" required>
+                                        <label>Si.</label>
+                                        <input type="radio" value="No" name="alergias">
+                                        <label>No.</label>
+                                        <br>
+                                        <label>Obervaciones:</label>
+                                        <input type="text" name="obs_alergias" value="{{ historia_personal.obs_alergias }}" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="d-flex">
+                                    <div class="form-group col-sm-10 pr-4">
+                                        <label><i>Medicación psiquiátrica:</i></label>
+                                        <br>
+                                        {% if historia_personal %}
+                                        <p>Actual: {{ historia_personal.med_psiquiatrica }}</p>
+                                        {% endif %}
+                                        <input type="radio" value="Si" name="med_psiquiatrica" required>
+                                        <label>Si.</label>
+                                        <input type="radio" value="No" name="med_psiquiatrica">
+                                        <label>No.</label>
+                                        <br>
+                                        <label>Obervaciones:</label>
+                                        <input type="text" name="obs_med_psiquiatrica" value="{{ historia_personal.obs_med_psiquiatrica }}" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="d-flex">
+                                    <div class="form-group col-sm-10 pr-4">
+                                        <label><i>Otra medicación:</i></label>
+                                        <br>
+                                        {% if historia_personal %}
+                                            <p>Actual: {{ historia_personal.otra_med }}</p>
+                                        {% endif %}
+                                        <input type="radio" value="Si" name="otra_med" required>
+                                        <label>Si.</label>
+                                        <input type="radio" value="No" name="otra_med">
+                                        <label>No.</label>
+                                        <br>
+                                        <label>Obervaciones:</label>
+                                        <input type="text" name="obs_otra_med" value="{{ historia_personal.obs_otra_med }}" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="d-flex">
+                                    <div class="form-group col-sm-10 pr-4">
+                                        <label><i>Otra medicación:</i></label>
+                                        <br>
+                                        {% if historia_personal %}
+                                            <p>Actual: {{ historia_personal.tabaco }}</p>
+                                        {% endif %}
+                                        <input type="radio" value="Si" name="tabaco" required>
+                                        <label>Si.</label>
+                                        <input type="radio" value="No" name="tabaco">
+                                        <label>No.</label>
+                                        <br>
+                                        <label>Obervaciones:</label>
+                                        <input type="text" name="obs_tabaco" value="{{ historia_personal.obs_tabaco }}" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="d-flex">
+                                    <div class="form-group col-sm-10 pr-4">
+                                        <label><i>Consumo de tabaco:</i></label>
+                                        <br>
+                                        {% if historia_personal %}
+                                            <p>Actual: {{ historia_personal.alcohol }}</p>
+                                        {% endif %}
+                                        <input type="radio" value="Si" name="alcohol" required>
+                                        <label>Si.</label>
+                                        <input type="radio" value="No" name="alcohol">
+                                        <label>No.</label>
+                                        <br>
+                                        <label>Obervaciones:</label>
+                                        <input type="text" name="obs_alcohol" value="{{ historia_personal.obs_alcohol }}" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="d-flex">
+                                    <div class="form-group col-sm-10 pr-4">
+                                        <label><i>Consumo de alcohol:</i></label>
+                                        <br>
+                                        {% if historia_personal %}
+                                            <p>Actual: {{ historia_personal.alcohol }}</p>
+                                        {% endif %}
+                                        <input type="radio" value="Si" name="alcohol" required>
+                                        <label>Si.</label>
+                                        <input type="radio" value="No" name="alcohol">
+                                        <label>No.</label>
+                                        <br>
+                                        <label>Obervaciones:</label>
+                                        <input type="text" name="obs_alcohol" value="{{ historia_personal.obs_alcohol }}" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="d-flex">
+                                    <div class="form-group col-sm-10 pr-4">
+                                        <label><i>Consumo de drogas ilegales:</i></label>
+                                        <br>
+                                        {% if historia_personal %}
+                                            <p>Actual: {{ historia_personal.drogas }}</p>
+                                        {% endif %}
+                                        <input type="radio" value="Si" name="drogas" required>
+                                        <label>Si.</label>
+                                        <input type="radio" value="No" name="drogas">
+                                        <label>No.</label>
+                                        <br>
+                                        <label>Obervaciones:</label>
+                                        <input type="text" name="obs_drogas" value="{{ historia_personal.obs_drogas }}" class="form-control">
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-secondary btn-success">Editar historia personal</button>
+                                <br><br>
+                                <a href="#" onclick="window.history.go(-1); return false;" class="btn btn-secondary">Volver</a>
+                                <input type="text" name="id" class="invisible" value="{{ paciente.id }}">
+                                <input type="text" name="nombre_paciente" class="invisible" value="{{ paciente.nombre }}">  
+                            </div>
+                        </div>
+                    </form> 
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
