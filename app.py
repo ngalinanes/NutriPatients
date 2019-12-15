@@ -17,7 +17,7 @@ db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 Bootstrap(app)
 
-## MODEL - TABLA PACIENTES ##
+## MODEL - TABLA DE PACIENTES ##
 class Paciente(db.Model):
     """
     Tabla pacientes
@@ -35,7 +35,7 @@ class Paciente(db.Model):
     ocupacion = db.Column(db.String(60), index=True, nullable=True)
     observaciones = db.Column(db.String(60), index=True, nullable=True, default='Sin observaciones')
 
-## MODEL - TABLA HISTORIA PERSONAL ##
+## MODEL - TABLA DE HISTORIA PERSONAL ##
 class Historia_personal(db.Model):
     """
     Tabla historia_personal
@@ -61,7 +61,7 @@ class Historia_personal(db.Model):
     obs_drogas = db.Column(db.String(60), index=True, default='Sin observaciones')
     paciente_id = db.Column(db.Integer, db.ForeignKey('pacientes.id'))
 
-## MODEL - TABLA ANTECENDETES FAMILIARES ##
+## MODEL - TABLA DE ANTECENDETES FAMILIARES ##
 class Antecedentes_familiares(db.Model):
     """
     Tabla de antecendetes familiares
@@ -79,6 +79,7 @@ class Antecedentes_familiares(db.Model):
     otro_tca = db.Column(db.String(40), index=True)
     paciente_id = db.Column(db.Integer, db.ForeignKey('pacientes.id'))
 
+## MODEL - TABLA DE FRECUENCIA DE ALIMENTOS ##
 class Frecuencia_alimentos(db.Model):
     """
     Tabla de frecuencia de alimentos
@@ -98,6 +99,7 @@ class Frecuencia_alimentos(db.Model):
     afuera = db.Column(db.String(30), index=True)
     paciente_id = db.Column(db.Integer, db.ForeignKey('pacientes.id'))
 
+## MODEL - TABLA DE ACTIVIDAD FISICA ##
 class Actividad_fisica(db.Model):
     """
     Tabla de actividad fisica de pacientes
@@ -110,10 +112,12 @@ class Actividad_fisica(db.Model):
     cuantas_veces = db.Column(db.String(80), index=True)
     paciente_id = db.Column(db.Integer, db.ForeignKey('pacientes.id'))
 
+## VISTAS - INICIO ##
 @app.route('/')
 def index():
     return render_template('home/index.html', title='Inicio')
 
+## VISTAS - AGREGAR NUEVO PACIENTE ##
 @app.route('/nuevo_paciente', methods=['GET','POST'])
 def nuevo_paciente():
     if request.method == 'POST':
@@ -140,12 +144,14 @@ def nuevo_paciente():
         #return redirect(url_for('historia_clinica', id=id_paciente, nombre_paciente=nombre_paciente))
     return render_template('pacientes/nuevo_paciente.html', title='Agregar Paciente')
 
+## VISTAS - VER UN PACIENTE ESPECIFICO ##
 @app.route('/ver_paciente/<int:id>', methods=['GET', 'POST'])
 def ver_paciente(id):
     paciente = Paciente.query.get_or_404(id)
 
     return render_template('pacientes/ver_paciente.html', paciente=paciente, title="Perfil paciente")
 
+## VISTAS - EDITAR UN PACIENTE ##
 @app.route('/edit_paciente/<int:id>', methods=['GET', 'POST'])
 def edit_paciente(id):
     paciente = Paciente.query.get_or_404(id)
@@ -167,12 +173,14 @@ def edit_paciente(id):
 
     return render_template('pacientes/edit_paciente.html', paciente=paciente, title="Editar paciente")
 
+## VISTAS - VER TODOS LOS PACIENTES ##
 @app.route('/all_pacientes')
 def all_pacientes():
     pacientes = Paciente.query.all()
 
     return render_template('pacientes/all_pacientes.html', pacientes=pacientes, title='Lista de pacientes')
 
+## VISTAS - COMPLETAR EL HISTORIAL PERSONAL DE UN PACIENTE ##
 @app.route('/historia_personal', methods=['GET', 'POST'])
 def historia_personal():
     if request.method == 'POST':
@@ -205,6 +213,7 @@ def historia_personal():
         return render_template('historia_clinica/antecedentes_familiares.html', id=id_paciente, nombre_paciente=nombre_paciente, title="Historia clinica")
     return render_template('historia_clinica/historia_personal.html', title='Historia Clinica')
 
+## VISTAS - COMPLETAR LOS ANTECEDENTES FAMILIARES DE UN PACIENTE ##
 @app.route('/antecedentes_familiares', methods=['GET', 'POST'])
 def antecedentes_familiares():
     if request.method == 'POST':
@@ -229,6 +238,7 @@ def antecedentes_familiares():
         return render_template('historia_clinica/frecuencia_alimentos.html', id=id_paciente, nombre_paciente=nombre_paciente, title="Historia clinica")
     return render_template('historia_clinica/antecedentes_familiares.html', title='Antecedentes familiares')
 
+## VISTAS - COMPLETAR LA FRECUENCIA DE ALIMENTOS DE UN PACIENTE ##
 @app.route('/frecuencia_alimentos', methods=['GET', 'POST'])
 def frecuencia_alimentos():
     if request.method == 'POST':
@@ -255,6 +265,7 @@ def frecuencia_alimentos():
         return render_template('historia_clinica/actividad_fisica.html', id=id_paciente, nombre_paciente=nombre_paciente, title="Historia clinica")
     return render_template('historia_clinica/frecuencia_alimentos.html', title='Frecuencia de alimentos')
 
+## VISTAS - VER LA HISTORIA CLINICA COMPLETA DE UN PACIENTE ##
 @app.route('/ver_historia_clinica/<int:id>')
 def ver_historia_clinica(id):
     historia_personal = Historia_personal.query.filter_by(paciente_id=id).first()
@@ -269,6 +280,7 @@ def ver_historia_clinica(id):
                             antecedentes_familiares=antecedentes_familiares, frecuencia_alimentos=frecuencia_alimentos, 
                             actividad_fisica=actividad_fisica, nombre_paciente=nombre_paciente, paciente_id=paciente_id, title="Ver historia clinica")
 
+## VISTAS - COMPLETAR LOS REGISTROS DE ACTIVIDAD FISICA DE UN PACIENTE ##
 @app.route('/actividad_fisica', methods=['GET', 'POST'])
 def actividad_fisica():
     if request.method == 'POST':
@@ -283,6 +295,7 @@ def actividad_fisica():
         return render_template('historia_clinica/conducta_alimentaria_actual.html', id=id_paciente, nombre_paciente=nombre_paciente, title="Historia clinica")
     return render_template('historia_clinica/actividad_fisica.html', title="Actividad física")    
 
+## VISTAS - EDITAR LOS REGISTROS DE ACTIVIDAD FISICA DE UN PACIENTE ##
 @app.route('/edit_actividad_fisica/<int:id>', methods=['GET', 'POST'])
 def edit_actividad_fisica(id):
     actividad_fisica = Actividad_fisica.query.filter_by(paciente_id=id).first()
@@ -305,6 +318,7 @@ def edit_actividad_fisica(id):
     paciente = Paciente.query.filter_by(id=id).first()
     return render_template('historia_clinica/edit_actividad_fisica.html', actividad_fisica=actividad_fisica, paciente=paciente, title='Editar actividad física')
 
+## VISTAS - EDITAR LA HISTORIA PERSONAL DE UN PACIENTE ##
 @app.route('/edit_historia_personal/<int:id>', methods=['GET', 'POST'])
 def edit_historia_personal(id):
     historia_personal = Historia_personal.query.filter_by(paciente_id=id).first()
@@ -357,6 +371,7 @@ def edit_historia_personal(id):
     paciente = Paciente.query.filter_by(id=id).first()
     return render_template('historia_clinica/edit_historia_personal.html', historia_personal=historia_personal, paciente=paciente, title='Editar actividad física')
 
+## VISTAS - EDITAR LOS ANTECEDENTES FAMILIARES DE UN PACIENTE ##
 @app.route('/edit_antecedentes_familiares/<int:id>', methods=['GET', 'POST'])
 def edit_antecedentes_familiares(id):
     antecedentes_familiares = Antecedentes_familiares.query.filter_by(paciente_id=id).first()
