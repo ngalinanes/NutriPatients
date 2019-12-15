@@ -25,8 +25,10 @@
                                         <div class="input-group-prepend">
                                             <label class="input-group-text">¿Realiza actividad física?</label>
                                         </div>
+                                        {% if actividad_fisica %}
+                                        <p>Actual: {{ actividad_fisica.actividad }}</p>
+                                        {% endif %}
                                         <select name="actividad" class="custom-select">
-                                            <option selected>{{ actividad_fisica.actividad }}</option>
                                             <option value="Si">Si.</option>
                                             <option value="No">No.</option>
                                         </select>
