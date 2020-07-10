@@ -292,7 +292,7 @@ def actividad_fisica():
         nombre_paciente = request.form['nombre_paciente']
         flash('Has agregado la actividad fisica del paciente'+nombre_paciente+' con éxito.')
 
-        return render_template('historia_clinica/conducta_alimentaria_actual.html', id=id_paciente, nombre_paciente=nombre_paciente, title="Historia clinica")
+        return render_template('home/index.html', title="Home")
     return render_template('historia_clinica/actividad_fisica.html', title="Actividad física")    
 
 ## VISTAS - EDITAR LOS REGISTROS DE ACTIVIDAD FISICA DE UN PACIENTE ##
