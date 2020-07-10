@@ -15,11 +15,11 @@ Probado desde Linux Ubuntu 18.04 corriendo sobre Windows 10 (Windows Subsystem f
 ## Como correr la app por primera vez:
 -   Se debe crear un ambiente virtual de Python 3. NOTA: Recomiendo usar como nombre "venv" ya que se encuentra excluido en el .gitignore, de usar otro nombre tener en cuenta de actualzarlo o crearlo fuera del repositorio.
 
-$ python3 -m venv <nombre-del-venv>
+$ python3 -m venv nombre-del-venv
 
 -   Activo el ambiente virtual
 
-$ source <nombre-del-venv>/bin/activate
+$ source nombre-del-venv/bin/activate
 
 -   Instalar las dependencias de la app
 
