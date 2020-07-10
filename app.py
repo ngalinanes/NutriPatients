@@ -327,7 +327,7 @@ def edit_frecuencia_alimentos(id):
         if update_frecuencia_alimentos == None:
             new_frecuencia_alimentos = Frecuencia_alimentos(frutas=request.form['frutas'], 
                                                     verduras=request.form['verduras'], 
-                                                    carnes=request.form['carnes'],
+                                                    carnes=request.form['carne'],
                                                     lacteos=request.form['lacteos'],
                                                     agua=request.form['agua'],
                                                     gaseosa=request.form['gaseosa'],
@@ -343,7 +343,7 @@ def edit_frecuencia_alimentos(id):
         else:
             update_frecuencia_alimentos.frutas = request.form['frutas']
             update_frecuencia_alimentos.verduras = request.form['verduras']
-            update_frecuencia_alimentos.carnes = request.form['carnes']
+            update_frecuencia_alimentos.carnes = request.form['carne']
             update_frecuencia_alimentos.lacteos = request.form['lacteos']
             update_frecuencia_alimentos.agua = request.form['agua']
             update_frecuencia_alimentos.gaseosa = request.form['gaseosa']
@@ -354,7 +354,7 @@ def edit_frecuencia_alimentos(id):
             flash('Has editado los registros de la frecuencia de alimentos del paciente con éxito.')
             return redirect(url_for('ver_historia_clinica', id=id))
     paciente = Paciente.query.filter_by(id=id).first()
-    return render_template('historia_clinica/edit_frecuencia_alimentos.html', actividad_fisica=frecuencia_alimentos, paciente=paciente, title='Editar actividad física')
+    return render_template('historia_clinica/edit_frecuencia_alimentos.html', frecuencia_alimentos=frecuencia_alimentos, paciente=paciente, title='Editar frecuencia de alimentos')
 
 ## VISTAS - EDITAR LA HISTORIA PERSONAL DE UN PACIENTE ##
 @app.route('/edit_historia_personal/<int:id>', methods=['GET', 'POST'])
