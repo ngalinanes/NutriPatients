@@ -318,6 +318,44 @@ def edit_actividad_fisica(id):
     paciente = Paciente.query.filter_by(id=id).first()
     return render_template('historia_clinica/edit_actividad_fisica.html', actividad_fisica=actividad_fisica, paciente=paciente, title='Editar actividad física')
 
+## VISTAS - EDITAR LOS REGISTROS DE FRECUENCIA DE ALIEMENTOS DE UN PACIENTE ##
+@app.route('/edit_frecuencia_alimentos/<int:id>', methods=['GET', 'POST'])
+def edit_frecuencia_alimentos(id):
+    frecuencia_alimentos = Frecuencia_alimentos.query.filter_by(paciente_id=id).first()
+    if request.method == 'POST':
+        update_frecuencia_alimentos = Frecuencia_alimentos.query.filter_by(paciente_id=id).first()
+        if update_frecuencia_alimentos == None:
+            new_frecuencia_alimentos = Frecuencia_alimentos(frutas=request.form['frutas'], 
+                                                    verduras=request.form['verduras'], 
+                                                    carnes=request.form['carnes'],
+                                                    lacteos=request.form['lacteos'],
+                                                    agua=request.form['agua'],
+                                                    gaseosa=request.form['gaseosa'],
+                                                    huevo=request.form['huevo'],
+                                                    cereales=request.form['cereales'],
+                                                    casera=request.form['casera'],
+                                                    afuera=request.form['afuera'],
+                                                     paciente_id=id)
+            db.session.add(new_frecuencia_alimentos)
+            db.session.commit()
+            flash('Has editado los registros de la frecuencia de alimentos del paciente con éxito.')
+            return redirect(url_for('ver_historia_clinica', id=id))
+        else:
+            update_frecuencia_alimentos.frutas = request.form['frutas']
+            update_frecuencia_alimentos.verduras = request.form['verduras']
+            update_frecuencia_alimentos.carnes = request.form['carnes']
+            update_frecuencia_alimentos.lacteos = request.form['lacteos']
+            update_frecuencia_alimentos.agua = request.form['agua']
+            update_frecuencia_alimentos.gaseosa = request.form['gaseosa']
+            update_frecuencia_alimentos.huevo = request.form['huevo']
+            update_frecuencia_alimentos.cereales = request.form['cereales']
+            update_frecuencia_alimentos.afuera = request.form['afuera']
+            db.session.commit()
+            flash('Has editado los registros de la frecuencia de alimentos del paciente con éxito.')
+            return redirect(url_for('ver_historia_clinica', id=id))
+    paciente = Paciente.query.filter_by(id=id).first()
+    return render_template('historia_clinica/edit_frecuencia_alimentos.html', actividad_fisica=frecuencia_alimentos, paciente=paciente, title='Editar actividad física')
+
 ## VISTAS - EDITAR LA HISTORIA PERSONAL DE UN PACIENTE ##
 @app.route('/edit_historia_personal/<int:id>', methods=['GET', 'POST'])
 def edit_historia_personal(id):
