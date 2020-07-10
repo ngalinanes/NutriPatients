@@ -23,11 +23,8 @@
                                 <div class="d-flex">
                                     <div class="input-group mb-3">
                                         <div class="input-group-prepend">
-                                            <label class="input-group-text">¿Realiza actividad física?</label>
+                                            <label class="input-group-text">¿Realiza actividad física? {{ actividad_fisica.actividad }}</label>
                                         </div>
-                                        {% if actividad_fisica %}
-                                        <p>Actual: {{ actividad_fisica.actividad }}</p>
-                                        {% endif %}
                                         <select name="actividad" class="custom-select">
                                             <option value="Si">Si.</option>
                                             <option value="No">No.</option>
