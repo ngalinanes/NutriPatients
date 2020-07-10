@@ -157,133 +157,38 @@
                                         <div class="container ">
                                             <p>¿Cuántas veces a la semana come/bebe los siguientes alimentos?</p>
                                             <div class="d-flex">
-                                                <div class="form-group pl-3">
-                                                    <label><i>Frutas: : {{ frecuencia_alimentos.diabetes }}</i></label>
-                                                    <br>
-                                                    <input type="radio" name="f_frutas" value="todos">
-                                                    <label>Todos los días.</label>
-                                                    <input type="radio" name="f_frutas" value="3a4">
-                                                    <label>3 a 4 días.</label>
-                                                    <input type="radio" name="f_frutas" value="1a2">
-                                                    <label>1 a 2 días.</label>
-                                                    <input type="radio" name="f_frutas" value="nunca">
-                                                    <label>Nunca.</label>
-                                                </div>
-                                                <div class="form-group pl-3">
-                                                    <label><i>Verduras:</i></label>
-                                                    <br>
-                                                    <input type="radio" name="f_verduras" value="todos">
-                                                    <label>Todos los días.</label>
-                                                    <input type="radio" name="f_verduras" value="3a4">
-                                                    <label>3 a 4 días.</label>
-                                                    <input type="radio" name="f_verduras" value="1a2">
-                                                    <label>1 a 2 días.</label>
-                                                    <input type="radio" name="f_verduras" value="nunca">
-                                                    <label>Nunca.</label>
-                                                </div>
-                                            </div>
-                                            <div class="d-flex">
-                                                <div class="form-group pl-3">
-                                                    <label><i>Carnes:</i></label>
-                                                    <br>
-                                                    <input type="radio" name="f_carnes" value="todos">
-                                                    <label>Todos los días.</label>
-                                                    <input type="radio" name="f_carnes" value="3a4">
-                                                    <label>3 a 4 días.</label>
-                                                    <input type="radio" name="f_carnes" value="1a2">
-                                                    <label>1 a 2 días.</label>
-                                                    <input type="radio" name="f_carnes" value="nunca">
-                                                    <label>Nunca.</label>
-                                                </div>
-                                                <div class="form-group pl-3">
-                                                    <label><i>Lácteos:</i></label>
-                                                    <br>
-                                                    <input type="radio" name="f_lacteos" value="todos">
-                                                    <label>Todos los días.</label>
-                                                    <input type="radio" name="f_lacteos" value="3a4">
-                                                    <label>3 a 4 días.</label>
-                                                    <input type="radio" name="f_lacteos" value="1a2">
-                                                    <label>1 a 2 días.</label>
-                                                    <input type="radio" name="f_lacteos" value="nunca">
-                                                    <label>Nunca.</label>
-                                                </div>
-                                            </div>
-                                            <div class="d-flex">
-                                                <div class="form-group pl-3">
-                                                    <label><i>Agua:</i></label>
-                                                    <br>
-                                                    <input type="radio" name="f_agua" value="todos">
-                                                    <label>Todos los días.</label>
-                                                    <input type="radio" name="f_agua" value="3a4">
-                                                    <label>3 a 4 días.</label>
-                                                    <input type="radio" name="f_agua" value="1a2">
-                                                    <label>1 a 2 días.</label>
-                                                    <input type="radio" name="f_agua" value="nunca">
-                                                    <label>Nunca.</label>
-                                                </div>
-                                                <div class="form-group pl-3">
-                                                    <label><i>Gaseosas:</i></label>
-                                                    <br>
-                                                    <input type="radio" name="f_gaseosa" value="todos">
-                                                    <label>Todos los días.</label>
-                                                    <input type="radio" name="f_gaseosa" value="3a4">
-                                                    <label>3 a 4 días.</label>
-                                                    <input type="radio" name="f_gaseosa" value="1a2">
-                                                    <label>1 a 2 días.</label>
-                                                    <input type="radio" name="f_gaseosa" value="nunca">
-                                                    <label>Nunca.</label>
-                                                </div>
-                                            </div>
-                                            <div class="d-flex">
-                                                <div class="form-group pl-3">
-                                                    <label><i>Huevo:</i></label>
-                                                    <br>
-                                                    <input type="radio" name="f_huevo" value="todos">
-                                                    <label>Todos los días.</label>
-                                                    <input type="radio" name="f_huevo" value="3a4">
-                                                    <label>3 a 4 días.</label>
-                                                    <input type="radio" name="f_huevo" value="1a2">
-                                                    <label>1 a 2 días.</label>
-                                                    <input type="radio" name="f_huevo" value="nunca">
-                                                    <label>Nunca.</label>
-                                                </div>
-                                                <div class="form-group pl-3">
-                                                    <label><i>Cereales:</i></label>
-                                                    <br>
-                                                    <input type="radio" name="f_cereales" value="todos">
-                                                    <label>Todos los días.</label>
-                                                    <input type="radio" name="f_cereales" value="3a4">
-                                                    <label>3 a 4 días.</label>
-                                                    <input type="radio" name="f_cereales" value="1a2">
-                                                    <label>1 a 2 días.</label>
-                                                    <input type="radio" name="f_cereales" value="nunca">
-                                                    <label>Nunca.</label>
-                                                </div>
-                                            </div>
-                                            <div class="d-flex">
-                                                <div class="form-group pl-3">
-                                                    <label><i>¿Cuántas veces a la semana come comida casera?:</i></label>
-                                                    <br>
-                                                    <input type="radio" name="f_casera" value="todos">
-                                                    <label>Todos los días.</label>
-                                                    <input type="radio" name="f_casera" value="3a4">
-                                                    <label>3 a 4 días.</label>
-                                                    <input type="radio" name="f_casera" value="1a2">
-                                                    <label>1 a 2 días.</label>
-                                                    <input type="radio" name="f_casera" value="nunca">
-                                                    <label>Nunca.</label>
-                                                </div>
-                                                <div class="form-group pl-3">
-                                                    <label><i>¿:</i></label>
-                                                    <br>
-                                                    <input type="radio" name="f_cereales" value="todos">
-                                                    <label>Todos los días.</label>
-                                                    <input type="radio" name="f_cereales" value="3a4">
-                                                    <label>3 a 4 días.</label>
-                                                    <input type="radio" name="f_cereales" value="1a2">
-                                                    <label>1 a 2 días.</label>
-                                                    <input type="radio" name="f_cereales" value="nunca">
-                                                    <label>Nunca.</label>
+                                                <ul>
+                                                    <li>
+                                                        <b><i>Frutas:</b> {{ frecuencia_alimentos.frutas }}</i>
+                                                    </li>
+                                                    <li>
+                                                        <b><i>Verduras:</b> {{ frecuencia_alimentos.verduras }}</i>
+                                                    </li>
+                                                    <li>
+                                                        <b><i>Carnes:</b> {{ frecuencia_alimentos.carne }}</i>
+                                                    </li>
+                                                    <li>
+                                                        <b><i>Lácteos:</b> {{ frecuencia_alimentos.lacteos }}</i>
+                                                    </li>
+                                                    <li>
+                                                        <b><i>Agua:</b> {{ frecuencia_alimentos.agua }}</i>
+                                                    </li>
+                                                    <li>
+                                                        <b><i>Gaseosas:</b> {{ frecuencia_alimentos.gaseosa }}</i>
+                                                    </li>
+                                                    <li>
+                                                        <b><i>Huevo:</b> {{ frecuencia_alimentos.huevo }}</i>
+                                                    </li>
+                                                    <li>
+                                                        <b><i>Cereales:</b> {{ frecuencia_alimentos.cereales }}</i>
+                                                    </li>
+                                                    <li>
+                                                        <b><i>¿Cuántas veces a la semana come comida casera?:</b> {{ frecuencia_alimentos.casera }}</i>
+                                                    </li>
+                                                    <li>
+                                                        <b><i>Comida fuera de casa:</b> {{ frecuencia_alimentos.afuera }}</i>
+                                                    </li>
+                                                </ul>
                                                 </div>
                                             </div>
                                         </div>
