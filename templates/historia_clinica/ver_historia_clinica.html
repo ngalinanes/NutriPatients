@@ -306,10 +306,12 @@
                                         {% if actividad_fisica %}
                                         <div class="card-body">
                                             <label><b>¿Realiza actividad física?: </b> {{ actividad_fisica.actividad }}</label>
+                                            {% if actividad_fisica.actividad == "Si." %}
                                             <hr class="intro-divider">
                                             <label><b>¿Cuál?: </b>{{ actividad_fisica.cual_actividad }}</label>
                                             <hr class="intro-divider">
                                             <label><b>¿Cuántas veces por semana y cuántas horas?: </b>{{ actividad_fisica.cuantas_veces }}</label>
+                                            {% endif %}
                                         </div>
                                         <div class="text-center">
                                             <a href="{{ url_for('edit_actividad_fisica', id=paciente_id) }}" class="btn btn-secondary btn-success">Editar actividad física</a>
