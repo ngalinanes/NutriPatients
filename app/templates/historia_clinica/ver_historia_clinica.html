@@ -91,14 +91,14 @@
                                         </div>
                                     </div>
                                     <div class="text-center">
-                                        <a href="{{ url_for('edit_historia_personal', id=paciente_id) }}" class="btn btn-secondary btn-success">Editar historia personal</a>
+                                        <a href="{{ url_for('historia_clinica.edit_historia_personal', id=paciente_id) }}" class="btn btn-secondary btn-success">Editar historia personal</a>
                                     </div>
                                     <br>
                                     {% else %}
                                     <div class="text-center">
                                         <br>
                                         <h5>El paciente no posee cargada una historia personal.</h5><br>
-                                        <a href="{{ url_for('edit_historia_personal', id=paciente_id) }}" class="btn btn-secondary btn-success">Editar historia personal</a><br><br>
+                                        <a href="{{ url_for('historia_clinica.edit_historia_personal', id=paciente_id) }}" class="btn btn-secondary btn-success">Editar historia personal</a><br><br>
                                     </div>
                                     {% endif %}
                                 </div>
@@ -131,14 +131,14 @@
                                         <label><b>Otros (TCA): </b>{{ antecedentes_familiares.otro_tca }}</label>
                                     </div>
                                     <div class="text-center">
-                                        <a href="{{ url_for('edit_antecedentes_familiares', id=paciente_id) }}" class="btn btn-secondary btn-success">Editar antecedentes familiares</a>
+                                        <a href="{{ url_for('historia_clinica.edit_antecedentes_familiares', id=paciente_id) }}" class="btn btn-secondary btn-success">Editar antecedentes familiares</a>
                                     </div>
                                     <br>
                                     {% else %}
                                     <div class="text-center">
                                         <br>
                                         <h5>El paciente no posee cargado antecedentes familiares.</h5><br>
-                                        <a href="{{ url_for('edit_antecedentes_familiares', id=paciente_id) }}" class="btn btn-secondary btn-success">Editar antecedentes familiares</a><br><br>
+                                        <a href="{{ url_for('historia_clinica.edit_antecedentes_familiares', id=paciente_id) }}" class="btn btn-secondary btn-success">Editar antecedentes familiares</a><br><br>
                                     </div>
                                     {% endif %}
                                 </div>
@@ -193,7 +193,7 @@
                                             </div>
                                         </div>
                                         <div class="text-center">
-                                            <a href="{{ url_for('edit_frecuencia_alimentos', id=paciente_id) }}" class="btn btn-secondary btn-success">Editar frecuencia de alimentos</a>
+                                            <a href="{{ url_for('historia_clinica.edit_frecuencia_alimentos', id=paciente_id) }}" class="btn btn-secondary btn-success">Editar frecuencia de alimentos</a>
                                         </div>
                                         <br>
                                     </div>
@@ -223,14 +223,14 @@
                                             {% endif %}
                                         </div>
                                         <div class="text-center">
-                                            <a href="{{ url_for('edit_actividad_fisica', id=paciente_id) }}" class="btn btn-secondary btn-success">Editar actividad física</a>
+                                            <a href="{{ url_for('historia_clinica.edit_actividad_fisica', id=paciente_id) }}" class="btn btn-secondary btn-success">Editar actividad física</a>
                                         </div>
                                         <br>
                                         {% else %}
                                         <div class="text-center">
                                             <br>
                                             <h5>El paciente no posee cargado registros de actividad fisica.</h5><br>
-                                            <a href="{{ url_for('edit_actividad_fisica', id=paciente_id) }}" class="btn btn-secondary btn-success">Editar actividad física</a><br><br>
+                                            <a href="{{ url_for('historia_clinica.edit_actividad_fisica', id=paciente_id) }}" class="btn btn-secondary btn-success">Editar actividad física</a><br><br>
                                         </div>
                                         {% endif %}
                                     </div>
