@@ -122,7 +122,7 @@
                                         <hr class="intro-divider">
                                         <label><b>Sobrepeso/Obesidad: </b>{{ antecedentes_familiares.sobrepeso }}</label>
                                         <hr class="intro-divider">
-                                        <label><b>Ataque cardíaco/ACV: </b>{{ antecedentes_familiares.acv }}</label>
+                                        <label><b>Ataque cardíaco/ACV: </b> {{ antecedentes_familiares.acv }} </label>
                                         <hr class="intro-divider">
                                         <label><b>Cáncer: </b>{{ antecedentes_familiares.cancer }}</label>
                                         <hr class="intro-divider">
@@ -131,14 +131,14 @@
                                         <label><b>Otros (TCA): </b>{{ antecedentes_familiares.otro_tca }}</label>
                                     </div>
                                     <div class="text-center">
-                                        <a href="{{ url_for('historia_clinica.edit_antecedentes_familiares', id=paciente_id) }}" class="btn btn-secondary btn-success">Editar antecedentes familiares</a>
+                                        <a href="{{ url_for('antecedentes_familiares.edit_antecedentes_familiares', id=paciente_id) }}" class="btn btn-secondary btn-success">Editar antecedentes familiares</a>
                                     </div>
                                     <br>
                                     {% else %}
                                     <div class="text-center">
                                         <br>
                                         <h5>El paciente no posee cargado antecedentes familiares.</h5><br>
-                                        <a href="{{ url_for('historia_clinica.edit_antecedentes_familiares', id=paciente_id) }}" class="btn btn-secondary btn-success">Editar antecedentes familiares</a><br><br>
+                                        <a href="{{ url_for('antecedentes_familiares.edit_antecedentes_familiares', id=paciente_id) }}" class="btn btn-secondary btn-success">Editar antecedentes familiares</a><br><br>
                                     </div>
                                     {% endif %}
                                 </div>

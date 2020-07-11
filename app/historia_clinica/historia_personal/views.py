@@ -1,3 +1,5 @@
+# app/historia_clinica/historia_personal/views.py
+
 from flask import Flask, request, render_template, flash, redirect, url_for
 from ...models import Historia_personal, Paciente
 from ... import db

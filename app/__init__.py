@@ -1,13 +1,9 @@
 # app/__init__.py
 
 # third-party imports
-from flask import Flask, render_template, flash, redirect, url_for, jsonify, request
+from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
-from flask_wtf import FlaskForm
-from wtforms.validators import DataRequired, Email, EqualTo
-from wtforms import StringField, SubmitField, SelectField
-from wtforms.fields.html5 import DateField
 from flask_bootstrap import Bootstrap
 
 # db variable initialization
@@ -36,5 +32,8 @@ def create_app(config_name):
 
     from .historia_clinica.historia_personal import historia_personal as historia_personal_blueprint
     app.register_blueprint(historia_personal_blueprint)
+
+    from .historia_clinica.antecedentes_familiares import antecedentes_familiares as antecedentes_familiares_blueprint
+    app.register_blueprint(antecedentes_familiares_blueprint)
 
     return app
