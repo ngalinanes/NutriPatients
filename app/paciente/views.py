@@ -85,5 +85,5 @@ def edit_paciente(id):
 ## VISTAS - VER TODOS LOS PACIENTES ##
 @paciente.route('/all_pacientes')
 def all_pacientes():
-    pacientes = get_all_pacientes
+    pacientes = get_all_pacientes()
     return render_template('pacientes/all_pacientes.html', pacientes=pacientes, title='Lista de pacientes')
