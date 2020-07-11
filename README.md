@@ -39,4 +39,4 @@ $ flask db upgrade
 
 - Iniciamos la app
 
-$ python3 app.py
+$ python3 run.py
