@@ -34,4 +34,7 @@ def create_app(config_name):
     from .historia_clinica import historia_clinica as historia_clinica_blueprint
     app.register_blueprint(historia_clinica_blueprint)
 
+    from .historia_clinica.historia_personal import historia_personal as historia_personal_blueprint
+    app.register_blueprint(historia_personal_blueprint)
+
     return app

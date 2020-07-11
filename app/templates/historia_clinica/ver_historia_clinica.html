@@ -91,14 +91,14 @@
                                         </div>
                                     </div>
                                     <div class="text-center">
-                                        <a href="{{ url_for('historia_clinica.edit_historia_personal', id=paciente_id) }}" class="btn btn-secondary btn-success">Editar historia personal</a>
+                                        <a href="{{ url_for('historia_personal.edit_historia_personal', id=paciente_id) }}" class="btn btn-secondary btn-success">Editar historia personal</a>
                                     </div>
                                     <br>
                                     {% else %}
                                     <div class="text-center">
                                         <br>
                                         <h5>El paciente no posee cargada una historia personal.</h5><br>
-                                        <a href="{{ url_for('historia_clinica.edit_historia_personal', id=paciente_id) }}" class="btn btn-secondary btn-success">Editar historia personal</a><br><br>
+                                        <a href="{{ url_for('historia_personal.edit_historia_personal', id=paciente_id) }}" class="btn btn-secondary btn-success">Editar historia personal</a><br><br>
                                     </div>
                                     {% endif %}
                                 </div>
