@@ -7,7 +7,7 @@ from ...models import Frecuencia_alimentos, Paciente
 
 app = Flask(__name__)
 
-## OBTENER LA FRECUENCIA DE ALIMENTOS DE UN PACIENTE EN PARTICULAR
+## FUNCION - OBTENER LA FRECUENCIA DE ALIMENTOS DE UN PACIENTE EN PARTICULAR
 def get_frecuencia_alimentos(id):
     result = Frecuencia_alimentos.query.filter_by(paciente_id=id).first()
     return result

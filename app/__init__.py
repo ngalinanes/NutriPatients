@@ -39,4 +39,7 @@ def create_app(config_name):
     from .historia_clinica.frecuencia_alimentos import frecuencia_alimentos as frecuencia_alimentos_blueprint
     app.register_blueprint(frecuencia_alimentos_blueprint)
 
+    from .historia_clinica.actividad_fisica import actividad_fisica as actividad_fisica_blueprint
+    app.register_blueprint(actividad_fisica_blueprint)
+
     return app

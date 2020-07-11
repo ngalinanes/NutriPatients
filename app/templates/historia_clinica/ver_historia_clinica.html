@@ -223,14 +223,14 @@
                                             {% endif %}
                                         </div>
                                         <div class="text-center">
-                                            <a href="{{ url_for('historia_clinica.edit_actividad_fisica', id=paciente_id) }}" class="btn btn-secondary btn-success">Editar actividad física</a>
+                                            <a href="{{ url_for('actividad_fisica.edit_actividad_fisica', id=paciente_id) }}" class="btn btn-secondary btn-success">Editar actividad física</a>
                                         </div>
                                         <br>
                                         {% else %}
                                         <div class="text-center">
                                             <br>
                                             <h5>El paciente no posee cargado registros de actividad fisica.</h5><br>
-                                            <a href="{{ url_for('historia_clinica.edit_actividad_fisica', id=paciente_id) }}" class="btn btn-secondary btn-success">Editar actividad física</a><br><br>
+                                            <a href="{{ url_for('actividad_fisica.edit_actividad_fisica', id=paciente_id) }}" class="btn btn-secondary btn-success">Editar actividad física</a><br><br>
                                         </div>
                                         {% endif %}
                                     </div>

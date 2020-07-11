@@ -3,6 +3,11 @@ from . import paciente
 from ..models import Paciente
 from .. import db
 
+## FUNCION - OBTENER UN PACIENTE EN PARTICULAR
+def get_paciente(id):
+    result = Paciente.query.get_or_404(id)
+    return result
+
 ## VISTAS - AGREGAR NUEVO PACIENTE ##
 @paciente.route('/nuevo_paciente', methods=['GET','POST'])
 def nuevo_paciente():
