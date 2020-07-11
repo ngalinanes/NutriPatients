@@ -36,4 +36,7 @@ def create_app(config_name):
     from .historia_clinica.antecedentes_familiares import antecedentes_familiares as antecedentes_familiares_blueprint
     app.register_blueprint(antecedentes_familiares_blueprint)
 
+    from .historia_clinica.frecuencia_alimentos import frecuencia_alimentos as frecuencia_alimentos_blueprint
+    app.register_blueprint(frecuencia_alimentos_blueprint)
+
     return app
