@@ -11,24 +11,40 @@ app = Flask(__name__)
 def get_antecedentes_familiares(id):
     result = Antecedentes_familiares.query.filter_by(paciente_id=id).first()
     return result
-    
+
+## FUNCION - CREAR UNA INSTANCIA DE LOS ANTECEDENTES FAMILIARES DE UN PACIENTE
+def create_antecedentes_familiares(diabetes,cardiaca,hipertension,sobrepeso,acv,cancer,observaciones,otro_tca,paciente_id):
+    result = Antecedentes_familiares(
+            diabetes=diabetes,
+            cardiaca=cardiaca,
+            hipertension=hipertension,
+            sobrepeso=sobrepeso,
+            acv=acv,
+            cancer=cancer,
+            observaciones=observaciones,
+            otro_tca=otro_tca,
+            paciente_id=paciente_id
+    )
+    db.session.add(result)
+    db.session.commit()
+
+    return result
+
 ## VISTAS - COMPLETAR LOS ANTECEDENTES FAMILIARES DE UN PACIENTE ##
 @antecedentes_familiares.route('/antecedentes_familiares', methods=['GET', 'POST'])
 def nuevo_antecedentes_familiares():
     if request.method == 'POST':
-        antecedentes_familiares = Antecedentes_familiares(
-            diabetes=request.form['diabetes'],
-            cardiaca=request.form['cardiaca'],
-            hipertension=request.form['hipertension'],
-            sobrepeso=request.form['sobrepeso'],
-            acv=request.form['acv'],
-            cancer=request.form['cancer'],
-            observaciones=request.form['observaciones'],
-            otro_tca=request.form['otro_tca'],
-            paciente_id = request.form['id']
+        antecedentes_familiares = create_antecedentes_familiares(
+            request.form['diabetes'],
+            request.form['cardiaca'],
+            request.form['hipertension'],
+            request.form['sobrepeso'],
+            request.form['acv'],
+            request.form['cancer'],
+            request.form['observaciones'],
+            request.form['otro_tca'],
+            request.form['id']
         )
-        db.session.add(antecedentes_familiares)
-        db.session.commit()
 
         id_paciente = request.form['id']
         nombre_paciente = request.form['nombre_paciente']
@@ -44,17 +60,17 @@ def edit_antecedentes_familiares(id):
     if request.method == 'POST':
         update_antecedentes_familiares = Antecedentes_familiares.query.filter_by(paciente_id=id).first()
         if update_antecedentes_familiares == None:
-            new_antecedentes_familiares = Antecedentes_familiares(diabetes=request.form['diabetes'],
-                                                                cardiaca=request.form['cardiaca'],
-                                                                hipertension=request.form['hipertension'],
-                                                                sobrepeso=request.form['sobrepeso'],
-                                                                acv=request.form['acv'],
-                                                                cancer=request.form['cancer'],
-                                                                observaciones=request.form['observaciones'],
-                                                                otro_tca=request.form['otro_tca'], 
-                                                                paciente_id=id)
-            db.session.add(new_antecedentes_familiares)
-            db.session.commit()
+            new_antecedentes_familiares = create_antecedentes_familiares(
+                request.form['diabetes'],
+                request.form['cardiaca'],
+                request.form['hipertension'],
+                request.form['sobrepeso'],
+                request.form['acv'],
+                request.form['cancer'],
+                request.form['observaciones'],
+                request.form['otro_tca'],
+                id
+            )
             flash('Has editado los antecedentes familiares del paciente con éxito.')
             return redirect(url_for('ver_historia_clinica', id=id))
         else:

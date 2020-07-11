@@ -2,7 +2,7 @@
 
 from flask import Flask, flash, request, redirect, url_for, render_template
 from ... import db
-from ...models import Paciente, Actividad_fisica
+from ...models import Actividad_fisica
 from ...paciente.views import get_paciente
 from . import actividad_fisica
 

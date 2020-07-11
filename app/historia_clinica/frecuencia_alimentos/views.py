@@ -3,7 +3,8 @@
 from flask import Flask, request, render_template, url_for, redirect, flash
 from . import frecuencia_alimentos
 from ... import db
-from ...models import Frecuencia_alimentos, Paciente
+from ...models import Frecuencia_alimentos
+from ...paciente.views import get_paciente
 
 app = Flask(__name__)
 
@@ -12,25 +13,43 @@ def get_frecuencia_alimentos(id):
     result = Frecuencia_alimentos.query.filter_by(paciente_id=id).first()
     return result
 
+## FUNCION - CREAR UNA INSTANCIA DE FRECUENCIA DE ALIMENTOS DE UN PACIENTE
+def create_frecuencia_alimentos(frutas,verduras,carne,lacteos,agua,gaseosa,huevo,cereales,casera,afuera,paciente_id):
+    result = Frecuencia_alimentos(
+            frutas=frutas,
+            verduras=verduras,
+            carne=carne,
+            lacteos=lacteos,
+            agua=agua,
+            gaseosa=gaseosa,
+            huevo=huevo,
+            cereales=cereales,
+            casera=casera,
+            afuera=afuera,
+            paciente_id=paciente_id
+    )
+    db.session.add(result)
+    db.session.commit()
+
+    return result
+
 ## VISTAS - COMPLETAR LA FRECUENCIA DE ALIMENTOS DE UN PACIENTE ##
 @frecuencia_alimentos.route('/frecuencia_alimentos', methods=['GET', 'POST'])
 def nueva_frecuencia_alimentos():
     if request.method == 'POST':
-        frecuencia_alimentos = Frecuencia_alimentos(
-            frutas=request.form['frutas'],
-            verduras=request.form['verduras'],
-            carne=request.form['carne'],
-            lacteos=request.form['lacteos'],
-            agua=request.form['agua'],
-            gaseosa=request.form['gaseosa'],
-            huevo=request.form['huevo'],
-            cereales=request.form['cereales'],
-            casera=request.form['casera'],
-            afuera=request.form['afuera'],
-            paciente_id = request.form['id']
+        frecuencia_alimentos = create_frecuencia_alimentos(
+            request.form['frutas'],
+            request.form['verduras'],
+            request.form['carne'],
+            request.form['lacteos'],
+            request.form['agua'],
+            request.form['gaseosa'],
+            request.form['huevo'],
+            request.form['cereales'],
+            request.form['casera'],
+            request.form['afuera'],
+            request.form['id']
         )
-        db.session.add(frecuencia_alimentos)
-        db.session.commit()
 
         id_paciente = request.form['id']
         nombre_paciente = request.form['nombre_paciente']
@@ -42,23 +61,23 @@ def nueva_frecuencia_alimentos():
 ## VISTAS - EDITAR LOS REGISTROS DE FRECUENCIA DE ALIEMENTOS DE UN PACIENTE ##
 @frecuencia_alimentos.route('/edit_frecuencia_alimentos/<int:id>', methods=['GET', 'POST'])
 def edit_frecuencia_alimentos(id):
-    frecuencia_alimentos = Frecuencia_alimentos.query.filter_by(paciente_id=id).first()
+    frecuencia_alimentos = get_frecuencia_alimentos(id)
     if request.method == 'POST':
-        update_frecuencia_alimentos = Frecuencia_alimentos.query.filter_by(paciente_id=id).first()
+        update_frecuencia_alimentos = get_frecuencia_alimentos(id)
         if update_frecuencia_alimentos == None:
-            new_frecuencia_alimentos = Frecuencia_alimentos(frutas=request.form['frutas'], 
-                                                    verduras=request.form['verduras'], 
-                                                    carnes=request.form['carne'],
-                                                    lacteos=request.form['lacteos'],
-                                                    agua=request.form['agua'],
-                                                    gaseosa=request.form['gaseosa'],
-                                                    huevo=request.form['huevo'],
-                                                    cereales=request.form['cereales'],
-                                                    casera=request.form['casera'],
-                                                    afuera=request.form['afuera'],
-                                                     paciente_id=id)
-            db.session.add(new_frecuencia_alimentos)
-            db.session.commit()
+            new_frecuencia_alimentos = create_frecuencia_alimentos(
+                request.form['frutas'],
+                request.form['verduras'],
+                request.form['carne'],
+                request.form['lacteos'],
+                request.form['agua'],
+                request.form['gaseosa'],
+                request.form['huevo'],
+                request.form['cereales'],
+                request.form['casera'],
+                request.form['afuera'],
+                request.form['id']
+            )
             flash('Has editado los registros de la frecuencia de alimentos del paciente con éxito.')
             return redirect(url_for('ver_historia_clinica', id=id))
         else:
@@ -74,5 +93,5 @@ def edit_frecuencia_alimentos(id):
             db.session.commit()
             flash('Has editado los registros de la frecuencia de alimentos del paciente con éxito.')
             return redirect(url_for('ver_historia_clinica', id=id))
-    paciente = Paciente.query.filter_by(id=id).first()
+    paciente = get_paciente(id)
     return render_template('historia_clinica/edit_frecuencia_alimentos.html', frecuencia_alimentos=frecuencia_alimentos, paciente=paciente, title='Editar frecuencia de alimentos')
