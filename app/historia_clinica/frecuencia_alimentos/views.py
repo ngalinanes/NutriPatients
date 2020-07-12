@@ -53,7 +53,7 @@ def nueva_frecuencia_alimentos():
 
         id_paciente = request.form['id']
         nombre_paciente = request.form['nombre_paciente']
-        flash('Has agregado la historia personal de '+nombre_paciente+' de manera exitosa.')
+        flash('Has agregado la frecuencia de alimentos de '+nombre_paciente+' de manera exitosa.')
 
         return render_template('historia_clinica/actividad_fisica.html', id=id_paciente, nombre_paciente=nombre_paciente, title="Historia clinica")
     return render_template('historia_clinica/frecuencia_alimentos.html', title='Frecuencia de alimentos')
