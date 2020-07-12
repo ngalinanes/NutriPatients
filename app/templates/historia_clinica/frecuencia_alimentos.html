@@ -12,21 +12,21 @@
             <div class="container">
                 <div class="col-md-10 offset-md-1">
                     <div class="card-header text-center">
-                        <h5>Historia Clinica de {{ paciente.nombre }}</h5>
+                        <h5>Historia Clinica de {{ nombre_paciente }}</h5>
                     </div>
-                    <form  action="/edit_frecuencia_alimentos/{{ paciente.id }}" method="POST">
+                    <form  action="/frecuencia_alimentos" method="POST">
                         <div class="card">
                             <div class="card-header text-center">
-                                <h4>Editar Frecuencia de alimentos</h4>
+                                <h4>Frecuencia de alimentos</h4>
                             </div>
                             <div class="card-body">
                                 <div class="container ">
                                     <p>¿Cuántas veces a la semana come/bebe los siguientes alimentos?</p>
                                     <div class="d-flex">
                                         <div class="form-group pl-3">
-                                            <label><i>Frutas: {{ frecuencia_alimentos.frutas }}</i></label>
+                                            <label><i>Frutas:</i></label>
                                             <br>
-                                            <input type="radio" name="frutas" value="Todos los días">
+                                            <input type="radio" name="frutas" value="Todos los días" required>
                                             <label>Todos los días.</label>
                                             <input type="radio" name="frutas" value="3 a 4 días">
                                             <label>3 a 4 días.</label>
@@ -36,9 +36,9 @@
                                             <label>Nunca.</label>
                                         </div>
                                         <div class="form-group pl-3">
-                                            <label><i>Verduras: {{ frecuencia_alimentos.verduras }}</i></label>
+                                            <label><i>Verduras:</i></label>
                                             <br>
-                                            <input type="radio" name="verduras" value="Todos los días">
+                                            <input type="radio" name="verduras" value="Todos los días" required>
                                             <label>Todos los días.</label>
                                             <input type="radio" name="verduras" value="3 a 4 días">
                                             <label>3 a 4 días.</label>
@@ -50,9 +50,9 @@
                                     </div>
                                     <div class="d-flex">
                                         <div class="form-group pl-3">
-                                            <label><i>Carnes: {{ frecuencia_alimentos.carne }}</i></label>
+                                            <label><i>Carnes:</i></label>
                                             <br>
-                                            <input type="radio" name="carne" value="Todos los días">
+                                            <input type="radio" name="carne" value="Todos los días" required>
                                             <label>Todos los días.</label>
                                             <input type="radio" name="carne" value="3 a 4 días">
                                             <label>3 a 4 días.</label>
@@ -62,9 +62,9 @@
                                             <label>Nunca.</label>
                                         </div>
                                         <div class="form-group pl-3">
-                                            <label><i>Lácteos: {{ frecuencia_alimentos.lacteos }}</i></label>
+                                            <label><i>Lácteos:</i></label>
                                             <br>
-                                            <input type="radio" name="lacteos" value="Todos los días">
+                                            <input type="radio" name="lacteos" value="Todos los días" required>
                                             <label>Todos los días.</label>
                                             <input type="radio" name="lacteos" value="3 a 4 días">
                                             <label>3 a 4 días.</label>
@@ -76,9 +76,9 @@
                                     </div>
                                     <div class="d-flex">
                                         <div class="form-group pl-3">
-                                            <label><i>Agua: {{ frecuencia_alimentos.agua }}</i></label>
+                                            <label><i>Agua:</i></label>
                                             <br>
-                                            <input type="radio" name="agua" value="Todos los días">
+                                            <input type="radio" name="agua" value="Todos los días" required>
                                             <label>Todos los días.</label>
                                             <input type="radio" name="agua" value="3 a 4 días">
                                             <label>3 a 4 días.</label>
@@ -88,9 +88,9 @@
                                             <label>Nunca.</label>
                                         </div>
                                         <div class="form-group pl-3">
-                                            <label><i>Gaseosas: {{ frecuencia_alimentos.gaseosa }}</i></label>
+                                            <label><i>Gaseosas:</i></label>
                                             <br>
-                                            <input type="radio" name="gaseosa" value="Todos los días">
+                                            <input type="radio" name="gaseosa" value="Todos los días" required>
                                             <label>Todos los días.</label>
                                             <input type="radio" name="gaseosa" value="3 a 4 días">
                                             <label>3 a 4 días.</label>
@@ -102,9 +102,9 @@
                                     </div>
                                     <div class="d-flex">
                                         <div class="form-group pl-3">
-                                            <label><i>Huevo: {{ frecuencia_alimentos.huevo }}</i></label>
+                                            <label><i>Huevo:</i></label>
                                             <br>
-                                            <input type="radio" name="huevo" value="Todos los días">
+                                            <input type="radio" name="huevo" value="Todos los días" required>
                                             <label>Todos los días.</label>
                                             <input type="radio" name="huevo" value="3 a 4 días">
                                             <label>3 a 4 días.</label>
@@ -114,9 +114,9 @@
                                             <label>Nunca.</label>
                                         </div>
                                         <div class="form-group pl-3">
-                                            <label><i>Cereales: {{ frecuencia_alimentos.cereales }}</i></label>
+                                            <label><i>Cereales:</i></label>
                                             <br>
-                                            <input type="radio" name="cereales" value="Todos los días">
+                                            <input type="radio" name="cereales" value="Todos los días" required>
                                             <label>Todos los días.</label>
                                             <input type="radio" name="cereales" value="3 a 4 días">
                                             <label>3 a 4 días.</label>
@@ -128,9 +128,9 @@
                                     </div>
                                     <div class="d-flex">
                                         <div class="form-group pl-3">
-                                            <label><i>¿Cuántas veces a la semana come comida casera?: {{ frecuencia_alimentos.casera }}</i></label>
+                                            <label><i>¿Cuántas veces a la semana come comida casera?:</i></label>
                                             <br>
-                                            <input type="radio" name="casera" value="Todos los días">
+                                            <input type="radio" name="casera" value="Todos los días" required>
                                             <label>Todos los días.</label>
                                             <input type="radio" name="casera" value="3 a 4 días">
                                             <label>3 a 4 días.</label>
@@ -140,9 +140,9 @@
                                             <label>Nunca.</label>
                                         </div>
                                         <div class="form-group pl-3">
-                                            <label><i>¿Cuantas veces por semana come fuera de su casa?: {{ frecuencia_alimentos.afuera }}</i></label>
+                                            <label><i>¿Cuantas veces por semana come fuera de su casa?:</i></label>
                                             <br>
-                                            <input type="radio" name="afuera" value="Todos los días">
+                                            <input type="radio" name="afuera" value="Todos los días" required>
                                             <label>Todos los días.</label>
                                             <input type="radio" name="afuera" value="3 a 4 días">
                                             <label>3 a 4 días.</label>
@@ -153,12 +153,11 @@
                                         </div>
                                     </div>
                                 </div>
-                                
-                                <button type="submit" class="btn btn-secondary btn-success">Editar frecuencia alimentos</button>
+                                <button type="submit" class="btn btn-secondary btn-success">Siguiente</button>
                                 <br><br>
                                 <a href="#" onclick="window.history.go(-1); return false;" class="btn btn-secondary">Volver</a>
-                                <input type="text" name="id" class="invisible" value="{{ paciente.id }}">
-                                <input type="text" name="nombre_paciente" class="invisible" value="{{ paciente.nombre }}">  
+                                <input type="text" name="id" class="invisible" value="{{ id }}">
+                                <input type="text" name="nombre_paciente" class="invisible" value="{{ nombre_paciente }}">  
                             </div>
                         </div>
                     </form> 

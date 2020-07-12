@@ -28,13 +28,13 @@
                   <td> {{ paciente.nombre }} </td>
                   <td> {{ paciente.edad }} </td>
                   <td>
-                    <a data-toggle="tooltip" data-placement="top" title="Perfil" href="{{ url_for('ver_paciente', id=paciente.id) }}">
+                    <a data-toggle="tooltip" data-placement="top" title="Perfil" href="{{ url_for('paciente.ver_paciente', id=paciente.id) }}">
                       <i class="fas fa-user-circle"></i>
                     </a>
-                    <a data-toggle="tooltip" data-placement="top" title="Editar" href="{{ url_for('edit_paciente', id=paciente.id) }}">
+                    <a data-toggle="tooltip" data-placement="top" title="Editar" href="{{ url_for('paciente.edit_paciente', id=paciente.id) }}">
                         <i class="fas fa-user-edit"></i> 
                     </a>
-                    <a data-toggle="tooltip" data-placement="top" title="Historia clinica" href="{{ url_for('ver_historia_clinica', id=paciente.id) }}">
+                    <a data-toggle="tooltip" data-placement="top" title="Historia clinica" href="{{ url_for('historia_clinica.ver_historia_clinica', id=paciente.id) }}">
                       <i class="fas fa-notes-medical"></i>
                     </a>
                     <a data-toggle="tooltip" data-placement="top" title="Laboratorios" href="#">
