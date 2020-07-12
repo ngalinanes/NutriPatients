@@ -79,7 +79,7 @@ def edit_frecuencia_alimentos(id):
                 request.form['id']
             )
             flash('Has editado los registros de la frecuencia de alimentos del paciente con éxito.')
-            return redirect(url_for('ver_historia_clinica', id=id))
+            return redirect(url_for('historia_clinica.ver_historia_clinica', id=id))
         else:
             update_frecuencia_alimentos.frutas = request.form['frutas']
             update_frecuencia_alimentos.verduras = request.form['verduras']
@@ -92,6 +92,6 @@ def edit_frecuencia_alimentos(id):
             update_frecuencia_alimentos.afuera = request.form['afuera']
             db.session.commit()
             flash('Has editado los registros de la frecuencia de alimentos del paciente con éxito.')
-            return redirect(url_for('ver_historia_clinica', id=id))
+            return redirect(url_for('historia_clinica.ver_historia_clinica', id=id))
     paciente = get_paciente(id)
     return render_template('historia_clinica/edit_frecuencia_alimentos.html', frecuencia_alimentos=frecuencia_alimentos, paciente=paciente, title='Editar frecuencia de alimentos')

@@ -120,6 +120,6 @@ def edit_historia_personal(id):
             update_historia_personal.paciente_id = id
             db.session.commit()
             flash('Has editado la historia personal del paciente con éxito.')
-            return redirect(url_for('ver_historia_clinica', id=id))
+            return redirect(url_for('historia_clinica.ver_historia_clinica', id=id))
     paciente = get_paciente(id)
     return render_template('historia_clinica/edit_historia_personal.html', historia_personal=historia_personal, paciente=paciente, title='Editar historia personal')

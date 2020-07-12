@@ -47,13 +47,13 @@ def edit_actividad_fisica(id):
             new_actividad_fisica = create_actividad_fisica(request.form['actividad'],request.form['cual_actividad'], request.form['cuantas_veces'], id)
             
             flash('Has editado los registros de actividad física del paciente con éxito.')
-            return redirect(url_for('ver_historia_clinica', id=id))
+            return redirect(url_for('historia_clinica.ver_historia_clinica', id=id))
         else:
             update_actividad_fisica.actividad = request.form['actividad']
             update_actividad_fisica.cual_actividad = request.form['cual_actividad']
             update_actividad_fisica.cuantas_veces = request.form['cuantas_veces']
             db.session.commit()
             flash('Has editado los registros de actividad física del paciente con éxito.')
-            return redirect(url_for('ver_historia_clinica', id=id))
+            return redirect(url_for('historia_clinica.ver_historia_clinica', id=id))
     paciente = get_paciente(id)
     return render_template('historia_clinica/edit_actividad_fisica.html', actividad_fisica=actividad_fisica, paciente=paciente, title='Editar actividad física')

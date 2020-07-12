@@ -3,7 +3,8 @@
 from flask import Flask, render_template, flash, request, url_for, redirect
 from . import antecedentes_familiares
 from ... import db
-from ...models import Antecedentes_familiares, Paciente
+from ...paciente.views import get_paciente
+from ...models import Antecedentes_familiares
 
 app = Flask(__name__)
 
@@ -85,6 +86,6 @@ def edit_antecedentes_familiares(id):
             update_antecedentes_familiares.paciente_id = id
             db.session.commit()
             flash('Has editado los antecedentes familiares del paciente con éxito.')
-            return redirect(url_for('ver_historia_clinica', id=id))
-    paciente = Paciente.query.filter_by(id=id).first()
+            return redirect(url_for('historia_clinica.ver_historia_clinica', id=id))
+    paciente = get_paciente(id)
     return render_template('historia_clinica/edit_antecedentes_familiares.html', antecedentes_familiares=antecedentes_familiares, paciente=paciente, title='Editar antecedentes familiares')
