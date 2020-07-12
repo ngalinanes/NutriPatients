@@ -15,7 +15,7 @@ class Paciente(db.Model):
     edad = db.Column(db.Integer, index=True)
     telefono = db.Column(db.String(60), index=True)
     estado_civil = db.Column(db.String(60), index=True)
-    email = db.Column(db.String(60), unique=True, index=True, nullable=True)
+    email = db.Column(db.String(60), index=True, nullable=True)
     cant_hijos = db.Column(db.Integer, index=True)
     ocupacion = db.Column(db.String(60), index=True, nullable=True)
     observaciones = db.Column(db.String(60), index=True, nullable=True, default='Sin observaciones')
