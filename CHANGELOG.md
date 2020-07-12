@@ -10,6 +10,9 @@
 -   Se corrigieron algunos errores en el endpoint y template de historia_personal durante la reestructuracion de al app. (bug#3/error_edit_historia_personal)
 -   Se corrigio una restriccion en el modelo Paciente para que varios pacientes puedan tener un mismo email. (bug#4/restriccion_mail_paciente)
 -   Se corrigieron algunos errores en el template de frecuencia_alimentos para que se carguen los formularios con todos los campos cargados. (bug#5/frecuencia_alimentos_required)
+-   Se corrigieron algunos errores tipograficos en el form de historia personal. (typo#1/form_historia_personal)
+-   Se corrigieron algunos errores tipograficos en el mensaje flash de frecuencia de alimentos. (typo#2/error_flash_frecuencia_alimentos)
+-   Se corrigieron algunos errores tipograficos en el mensaje flash de actividad fisica. (typo#3/flash_actividad_fisica)
 
 ## 1.0.0 (2020-07-12)
 Primer release
