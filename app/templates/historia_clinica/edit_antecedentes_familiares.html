@@ -12,9 +12,9 @@
             <div class="container">
                 <div class="col-md-10 offset-md-1">
                     <div class="card-header text-center">
-                        <h5>Historia Clinica de {{ nombre_paciente }}</h5>
+                        <h5>Historia Clinica de {{ paciente.nombre }}</h5>
                     </div>
-                    <form  action="/antecedentes_familiares/{{ paciente.id }}" method="POST">
+                    <form  action="/edit_antecedentes_familiares/{{ paciente.id }}" method="POST">
                         <div class="card">
                             <div class="card-header text-center">
                                 <h4>Editar antecedentes familiares</h4>
@@ -137,8 +137,8 @@
                                 <button type="submit" class="btn btn-secondary btn-success">Editar antecedentes familiares</button>
                                 <br><br>
                                 <a href="#" onclick="window.history.go(-1); return false;" class="btn btn-secondary">Volver</a>
-                                <input type="text" name="id" class="invisible" value="{{ id }}">
-                                <input type="text" name="nombre_paciente" class="invisible" value="{{ nombre_paciente }}">  
+                                <input type="text" name="id" class="invisible" value="{{ paciente.id }}">
+                                <input type="text" name="nombre_paciente" class="invisible" value="{{ paciente.nombre }}">  
                             </div>
                         </div>
                     </form> 
