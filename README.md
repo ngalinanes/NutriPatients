@@ -37,6 +37,8 @@ $ flask db migrate
 
 $ flask db upgrade
 
+- Por el momento para que funcione la eliminacion en cascada, modifico manualmente las llaves foraneas (On update/On delete -> CASCADE) desde el motor de base de datos.
+
 - Iniciamos la app
 
 $ python3 run.py

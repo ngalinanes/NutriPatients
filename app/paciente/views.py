@@ -79,7 +79,7 @@ def edit_paciente(id):
         update_paciente.observaciones=request.form['observaciones']
         db.session.commit()
         flash("Has editado el paciente de manera exitosa.")
-        return redirect(url_for('all_pacientes'))
+        return redirect(url_for('paciente.all_pacientes'))
     return render_template('pacientes/edit_paciente.html', paciente=paciente, title="Editar paciente")
 
 ## VISTAS - VER TODOS LOS PACIENTES ##
@@ -87,3 +87,13 @@ def edit_paciente(id):
 def all_pacientes():
     pacientes = get_all_pacientes()
     return render_template('pacientes/all_pacientes.html', pacientes=pacientes, title='Lista de pacientes')
+
+## VISTAS - ELIMINAR UN PACIENTE EN PARTICULAR ##
+@paciente.route('/eliminar_paciente/<int:id>', methods=['GET','POST'])
+def eliminar_paciente(id):
+    paciente = get_paciente(id)
+    nombre_paciente = paciente.nombre
+    db.session.delete(paciente)
+    db.session.commit()
+    flash("Has eliminado al paciente "+nombre_paciente)
+    return redirect(url_for('paciente.all_pacientes'))
