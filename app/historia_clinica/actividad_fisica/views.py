@@ -32,7 +32,7 @@ def nueva_actividad_fisica():
 
         id_paciente = request.form['id']
         nombre_paciente = request.form['nombre_paciente']
-        flash('Has agregado la actividad fisica del paciente'+nombre_paciente+' con éxito.')
+        flash('Has agregado la actividad fisica del paciente '+nombre_paciente+' con éxito.')
 
         return render_template('home/index.html', title="Home")
     return render_template('historia_clinica/actividad_fisica.html', title="Actividad física")    
